@@ -1,18 +1,21 @@
-n = int(input())
-player_list = []
-result = []
+from sys import stdin
 
-for _ in range(n):
-    a = input()
-    player_list.append(a[0])
+N = int(stdin.readline())
 
-first_names = set(player_list)
+lst = []
 
-for i in first_names:
-    if player_list.count(i) >= 5:
-        result.append(i)
+for _ in range(N):
+    lst.append(stdin.readline().strip()[0])
 
-if len(result) > 0:
-    print(''.join(sorted(result)))
+temp = set(lst)
+res = []
+
+for i in temp:
+    if lst.count(i) >= 5:
+        res.append(i)
+
+if res:
+    res.sort()
+    print(''.join(res))
 else:
     print("PREDAJA")
